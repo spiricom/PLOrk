@@ -1,5 +1,8 @@
+dt=$(date '+%d/%m/%Y %H:%M:%S');
+mess='PLOrk repo update: ';
+mess+=dt;
 find ./Patches/ -name "*.zip" -type f|xargs rm -f;
 for i in ./Patches/*; do zip -r "${i%/}.zip" "$i"; done
 git add --all
-git commit -m $1
-git push origin $2
+git commit -m "$mess"
+git push origin $1
